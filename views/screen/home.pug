@@ -1,0 +1,19 @@
+extends ../layout/base.pug
+
+block content 
+    form(action="/create", method="post")
+        select(name="score") 
+            option(value="1") 1점
+            option(value="2") 2점
+            option(value="3") 3점
+            option(value="4") 4점
+            option(value="5") 5점
+        input(type="text" name="content" required)
+        button 작성
+    .list   
+        each review in reviews 
+            div 점수: #{review.score} 점
+            div 리뷰: #{review.content}
+            div 직성일: #{review.createdAt}
+            hr           
+            
